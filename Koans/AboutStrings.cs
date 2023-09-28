@@ -17,21 +17,21 @@ public class AboutStrings : Koan
 	public void DoubleQuotedStringsAreStrings()
 	{
 		var str = "Hello, World";
-		Assert.Equal(typeof(FillMeIn), str.GetType());
+		Assert.Equal(typeof(string), str.GetType());
 	}
 
 	[Step(2)]
 	public void SingleQuotedStringsAreNotStrings()
 	{
 		var str = 'H';
-		Assert.Equal(typeof(FillMeIn), str.GetType());
+		Assert.Equal(typeof(char), str.GetType());
 	}
 
 	[Step(3)]
 	public void CreateAStringWhichContainsDoubleQuotes()
 	{
 		var str = "Hello, \"World\"";
-		Assert.Equal(FILL_ME_IN, str.Length);
+		Assert.Equal(14, str.Length);
 	}
 
 	[Step(4)]
@@ -40,7 +40,7 @@ public class AboutStrings : Koan
 		//The @ symbol creates a 'verbatim string literal'. 
 		//Here's one thing you can do with it:
 		var str = @"Hello, ""World""";
-		Assert.Equal(FILL_ME_IN, str.Length);
+		Assert.Equal(14, str.Length);
 	}
 
 	[Step(5)]
@@ -48,7 +48,7 @@ public class AboutStrings : Koan
 	{
 		var strA = @"Verbatim Strings can handle both ' and "" characters (when escaped)";
 		var strB = "Verbatim Strings can handle both ' and \" characters (when escaped)";
-		Assert.Equal(FILL_ME_IN, strA.Equals(strB));
+		Assert.Equal(strB.Equals(strA), strA.Equals(strB));
 	}
 
 	[Step(6)]
@@ -64,8 +64,8 @@ broken line";
 
 		// Make sure to use a literal string.
 		// Escaped characters in verbatim strings are covered later.
-		var literalString = FILL_ME_IN;
-		Assert.Equal(FILL_ME_IN, verbatimString.Length);
+		var literalString = "I\nam a\nbroken line";
+		Assert.Equal(literalString.Length, verbatimString.Length);
 
 		// For verbatim strings, the newline character used will depend on
 		// whether the source file uses a \r\n or a \n ending and they have
@@ -126,7 +126,7 @@ broken line";
 		var originalString = strA;
 		var strB = "World";
 		strA += strB;
-		
+
 		Assert.Equal(FILL_ME_IN, originalString);
 		Assert.False(Object.ReferenceEquals(FILL_ME_IN, originalString));
 		//What just happened? Well, the string concatenation actually
@@ -159,7 +159,7 @@ broken line";
 		//When doing lots and lots of concatenation in a loop, StringBuilder will be more efficient than concatenation using the +-operator.
 		//However, even in the above example simple concatenation would actually be more efficient.
 	}
-	
+
 	[Step(13)]
 	public void YouCouldAlsoUseStringFormatToConcatenate()
 	{
@@ -327,7 +327,7 @@ broken line";
 		var str = $"Mr. {name} is {age} years old";
 		Assert.Equal(FILL_ME_IN, str);
 	}
-	
+
 	[Step(34)]
 	public void InterpolationSupportsFormatAsWell()
 	{
